@@ -49,8 +49,6 @@ while i <= 999:
        digit = a % 10
        sum = sum + digit ** 3
        a = a // 10
-    # print(sum, i, a)
-
     if i == sum:
     	print(sum, " Armstrong number")
 

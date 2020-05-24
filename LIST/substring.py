@@ -9,3 +9,22 @@ while i < len(newStr):
 		a = a + newStr[i] + " "
 	i = i + 1		
 print(a)
+
+
+
+
+
+
+
+
+
+		()
+       ( )
+    \ (   )
+    ( ___)
+    ()	()	
+
+
+
+
+

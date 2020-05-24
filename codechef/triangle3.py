@@ -6,17 +6,9 @@ c=int(input(""))
 #check the possibility of the triangle by sum of all angles
 angle=a+b+c
 if angle==180:
-    if a==90:
-        print("right angled triangle")
-    elif b==90:
-        print("right angled triangle")
-    elif c==90:
-        print("right angled triangle")
-    elif a>90:
-        print("obtuse")
-    elif b>90:
-        print("obtuse")
-    elif c>90:
+    if a==90 or b == 90 or c == 90:
+        print("right angle")
+    elif a>90 or b > 90 or c > 90:
         print("obtuse")
     else:
         print("acute")

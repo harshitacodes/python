@@ -23,5 +23,3 @@ while i<=5:
 # 		print(c, end = "")
 # 	print("\n")
 # 	a = a+1		
-
-i 

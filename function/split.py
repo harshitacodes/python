@@ -1,5 +1,5 @@
 def break_into_words(list1):
-	for i in list1:
+	for j in list1:
 	    sentence_list = []
 	    word = ''
 	    for i in list1:
