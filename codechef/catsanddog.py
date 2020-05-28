@@ -1,21 +1,5 @@
 # t=int(input())
 # for i in range(t):
-#     a,b,k=map(int,input().split())
-#     s=a+b
-#     ma=s*4
-#     if a<=2*b:
-#         m=b*4
-#     else:
-#         m=b*4 +(a-2*b)*4
-#     if k>=m and k<=ma and k%4==0:
-#             print("yes")
-#     else:
-#                 print("no")
-
-
-
-# t=int(input())
-# for i in range(t):
     
 #  c,d,l = map(int,input().split())
 #  maximum=d*4
@@ -57,12 +41,15 @@ for i in range(t):
     c,d,l=map(int,input().split())
     s=c+d
     mc=s*4
+    # print(mc)
     if c<=2*d:
         m=d*4
     else:
         m=d*4 +(c-2*d)*4
+        # print(m)
+        print(m)
     if l>=m and l<=mc and l%4==0:
-            print("yes")
+        print("yes")
     else:
-                print("no")
+        print("no")
             

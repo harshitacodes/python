@@ -9,3 +9,12 @@ for i in range(t):
         c = c + 1
     r = c - 2
     print(r)
+
+# n=int(input())
+# for i in range(n):
+#     x=int(input())
+#     c=0
+#     while (c<x):
+#         c=c+1
+#         x=x-c
+#     print(c)

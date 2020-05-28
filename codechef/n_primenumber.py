@@ -14,19 +14,3 @@ while counter < n:
 		print(num)
 		counter = counter + 1
 	num = num + 1			
-# n = int(input("enter the number"))
-# num=2
-# b=1
-# while b<n:
-#     index = 2
-#     if b==n:
-#         break
-#     else:    
-#         while index * index <= num:
-#             if (num%index==0):
-#                 break
-#             index=index+1
-#         else:
-#             print(num)
-#             b=b+1
-#     num=num+1

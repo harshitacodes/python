@@ -1,23 +1,3 @@
-# i = 0
-# new_list = []
-# while i < 10:
-# 	user = int(input("enter the number"))
-# 	new_list.append(user)
-# 	i = i + 1
-# second_list = []	
-# j = 0	
-# while j < len(new_list):
-# 	if new_list[j] % 2 == 0:
-# 		num = new_list[j] * 100
-# 		second_list.append(num)
-# 	else:
-# 		num = new_list[j] * (-1)
-# 		second_list.append(num)
-# 	j = j + 1
-# print(second_list)		
-			
-
-
 i = 0
 new_list = []
 while i < 10:

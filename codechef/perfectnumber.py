@@ -1,27 +1,3 @@
-# num = int(input(" enter the number to know , it perfect number or not: "))
-# a = 2
-# sum = 0
-# while a * a <= num:
-# 	if num % a == 0:
-# 		if a == num/a:
-# 			sum = sum + a
-
-# 		else:
-# 			sum = sum + a + num/a
-# 	a = a + 1
-# else:
-# 	# sum = sum + 1
-# 	print(sum)
-# 	if sum == num:
-# 		print("perfect num")
-# 	else:
-# 		print("not perferct")					
-
-
-
-
-
-
 N = int(input())
 i = 0
 while i < N:

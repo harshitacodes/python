@@ -15,54 +15,6 @@
 
 
 
-# vowels = "aeiouAEIOU"
-# a = input("enter the string you want ")
-# i = 0
-# new = ''
-# while i < len(a):
-# 	if a[i]!= " ":
-# 		new = new + a[i]
-# 	i = i + 1
-# l = len(new)
-# count_vowel = 0
-# consonants = 0 
-# i = 0
-# while i < len(new):
-# 	j = 0
-# 	while j < len(vowels):
-# 		if new[i] == vowels[j]:
-# 			count_vowel = count_vowel + 1
-# 		j = j + 1
-# 	i = i + 1
-# print(count_vowel)
-# consonants = l - count_vowel
-# print(consonants)			
-
-
-# vowels = "aeiouAEIOU"
-# consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
-# vow = 0
-# const = 0
-# a = input("enter the string")
-# i = 0 
-# while i < len(a):
-# 	j = 0
-# 	while j < len(vowels):
-# 		if a[i] == vowels[j]:
-# 			vow = vow + 1
-# 		else:
-# 			print("", end = "")	
-# 		j = j + 1
-# 	k = 0	
-# 	while k < len(consonants):
-# 		if a[i] == consonants[k]:
-# 			const = const + 1
-# 		else:
-# 			print("", end = "")
-# 		k = k +	
-# 	i = i + 1
-# print(vow)
-# print(const)
 
 
 vowels = "aeiouAEIOU"
