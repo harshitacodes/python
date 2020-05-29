@@ -15,7 +15,7 @@ def request_api(url):
 
 if path.exists("courses.json"):
 	with open("courses.json","r") as data:
-		print(type(data)) 
+		# print(type(data)) 
 		# coverting the data into string from _io.TextIoWrapper
 		read_file = json.load(data)
 		# data is converting from string to dictionary  
@@ -30,9 +30,9 @@ else:
 
 #  this main list contain the data in dictionary format
 courses_list = ((dictionary_type['availableCourses']))
-# loop will run in main list
+# loop will run in courses list
 counter = 1
-for i in main_list:
+for i in courses_list:
 	# data will access by key
 	print ("{0}.   {1}".format(str(counter),i['name']))
 	counter = counter + 1
