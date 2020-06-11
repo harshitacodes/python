@@ -44,6 +44,8 @@ def courses_name():
 courses_name()
 
 
+
+
 def courseId():
 	id_list = []
 	course_name = []
@@ -53,20 +55,28 @@ def courseId():
 		course_name.append(courses_list[j]['name'])
 		j = j + 1
 	user_id = int(input("enter the course id: "))
+	# user_id = user_id-1
 	course_id = id_list[user_id]
 	print("course id is",course_id)
 	print(course_name[user_id])
-	callApi = courses_api("https://saral.navgurukul.org/api/courses" + "/" +str(id_list[user_id])+ "/" + "exercises")
-	dict_type = json.loads(callApi)
-	# print(type(callApi))
-	
-	return (dict_type["data"])
 
-	# print(callApi)
 
+	callApi = "https://saral.navgurukul.org/api/courses" + "/" +str(id_list[user_id])+ "/" + "exercises"
+
+
+	if path.exists("courses_Exercise/course_"+(str(user_id))+".json"):
+		with open("courses_Exercise/course_"+(str(user_id))+".json","r") as data_file:
+			readfile = json.load(data_file)	
+			dic_type = json.loads(readfile)
+	else:
+		restext = courses_api(callApi)
+		with open("courses_Exercise/course_"+(str(user_id))+".json","w") as filedata:
+			json.dump(restext,filedata)
+			# while dumping the data from file in response_text it might change the type string
+			dic_type = json.loads(restext)
+	return dic_type['data']	
 id_listdata = courseId()
 
-# id_listdata = dict_type["data"]
 
     
 def parentchildExercise(list_data):
@@ -80,12 +90,23 @@ def parentchildExercise(list_data):
 			if "parent_exercise_id" in childExerciseslist[index1]:
 				print(5*" ", index1,"-", childExerciseslist[index1]['name'])
 			index1 = index1 + 1
-		index = index + 1                                                                                                                                                                                                                                             
-parentchildExercise(id_listdata )	
+		index = index + 1                                                                                                                                                                                                            
+parentchildExercise(id_listdata)	
 
 
-choice = input("enter the 'up' if you want again all exercises or 'exercise no 'to get the exercise content:")
-if choice == "up":
-	print(courses_name())
+
+
+
+exercise = int(input("enter the exercise "))
+
+slug_api = "http://saral.navgurukul.org/api/courses/" + str(exercise) + "/" + "exercise/getBySlug?slug=requests__using-json"
+if path.exists("courseSlug/slug_"+(str(exercise))+".json"):
+	with open("courseSlug/slug_"+(str(exercise))+".json","r") as d:
+		r_data = json.load(d)	
+		dictype = json.loads(r_data)
 else:
-	print(parentchildExercise(id_listdata))
+	r_text = courses_api(slug_api)
+	with open("courseSlug/slug_"+(str(exercise))+".json","w") as K:
+		json.dump(r_text,K)
+		# while dumping the data from file in response_text it might change the type string
+		dictype = json.loads(r_text)
