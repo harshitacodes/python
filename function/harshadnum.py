@@ -8,6 +8,11 @@ def Is_harshad_number(num):
         print(False)
 number = int(input("enter the number"))    
 Is_harshad_number(number)
+
+
+
+
+
 # without sum function:-
 def harshad_nummber(num):
 	x = [int(i) for i in str(num)]
