@@ -28,6 +28,7 @@ def Available_courses():
 Available_courses()
 
 
+
 print("\n")
 print("#################----------Welcome to the exercise-----------###################")
 print("\n")
@@ -61,14 +62,9 @@ id_listdata = (idlistdata[0])
 user_id = (idlistdata[1])
 
 
-
-
 print("\n")
 
 
-# choice = input("enter the choice for up write'up' and 'down' for down")
-# if choice == "up":
-# 	print(list_of_courses())
 	
 def parentchildExercise(list_data):
 	parent_index = 0
@@ -81,66 +77,82 @@ def parentchildExercise(list_data):
 			if "parent_exercise_id" in childExerciseslist[child_index]:
 				print(5*" ", child_index+1,"-", childExerciseslist[child_index]['name'])
 			child_index = child_index + 1
-		parent_index = parent_index + 1                                                                                                                                                                                                                                             
-parentchildExercise(id_listdata )	
+		parent_index = parent_index + 1
+parentchildExercise(id_listdata)	
 
+
+
+choice = input("enter the 'up' to get again available courses if you want otherwise enter 'down': ")
+if choice == "up":
+	Available_courses()
+	available_course_id()
+	parentchildExercise(id_listdata)
 
 print("\n")
-
 exercise = int(input("enter the exercise no: "))-1
-
 print("\n")
 
 
 def id_single_data():
 	exercise_index = 0
+	Slug_list = []
 	while exercise_index < len(id_listdata):
-		parent_Exercise = id_listdata [exercise]['name']
+		parent_Exercise = id_listdata[exercise]['name']
+		parent_slug = id_listdata[exercise]['slug']
+		Slug_list.append(parent_slug)
 		childExerciseslist = id_listdata [exercise]['childExercises']
 		print(exercise_index,parent_Exercise)
 		child_index2 = 0
 		while child_index2 < len(childExerciseslist):
 			if "parent_exercise_id" in childExerciseslist[child_index2]:
+				child_slug = childExerciseslist[child_index2]['slug']
+				Slug_list.append(child_slug)
 				print(5*" ",child_index2+1,"-", childExerciseslist[child_index2]['name'])
 			child_index2 = child_index2 + 1
 		break
 		exercise_index = exercise_index + 1
-id_single_data()
+	return [Slug_list]
+selected_data = id_single_data()
+slug_list = selected_data[0]
 
 
+print("\n")		
+content = int(input("enter the exercise no to get the content: "))
+print("\n")
+print("##########-----Welcome to the content-------###############")
 print("\n")
 
-def child_exercise_slug():
-	slug_list = []
-	child_list =[]
-	parent_slug_index = 0
-	while parent_slug_index < len(id_listdata):
-		childExerciseslist = id_listdata[parent_slug_index]['childExercises']
-		child_slug = id_listdata[parent_slug_index]['slug']
-		child_list.append(childExerciseslist)
-		slug_list.append(child_slug)
-		parent_slug_index = parent_slug_index + 1
 
-		
-	content = int(input("enter the exercise no to get the content: "))-1
+def third_api():
+	third_api = "http://saral.navgurukul.org/api/courses/" + str(user_id) + "/" + "exercise/getBySlug?slug=" + str(slug_list[content])
+	text_content = get_saral_url(third_api)
+	dict_type_slug = json.loads(text_content)
+	print(dict_type_slug['content'])
+third_api()
+print("\n")
 
+i = 0
+while i < len(slug_list):
+	pre_next = input("enter the n/p for next and previous or next content: ")
+	if pre_next == "n":
+		content = content+1
+		if content < len(slug_list):
+			third_api()
+		else:
+			print(":( sorry,,,,, page not found")
+			break
+		print("\n")
 
-
-
-	if (child_list[exercise]==[]):
-		third_api = "http://saral.navgurukul.org/api/courses/" + str(user_id) + "/" + "exercise/getBySlug?slug=" + str(slug_list[exercise])
-		text_content = get_saral_url(third_api)
-		dict_type_slug = json.loads(text_content)
-		print(dict_type_slug['content'])
-
-
+	elif pre_next == "p":
+		content = content-1
+		if content >= 0:
+			third_api()
+		else:
+			print("page not found")
+			break
+		print("\n")
 	else:
-		third_api = "http://saral.navgurukul.org/api/courses/" + str(user_id) + "/" + "exercise/getBySlug?slug=" + str(child_list[exercise][content]["slug"])
-		text_content = get_saral_url(third_api)
-		dict_type_slug = json.loads(text_content)
-		print(dict_type_slug['content'])
-
-	
-
-child_exercise_slug()
-
+		print("invalid input")
+		break
+	i = i + 1
+		
