@@ -1,15 +1,13 @@
 def break_into_words(list1):
-	for j in list1:
-	    sentence_list = []
-	    word = ''
-	    for i in list1:
-	        if i == ' ':
-	            sentence_list.append(word)
-	            word = ''
-	        else:
-	            word = word + i
-	    if word != '':
-	    	sentence_list.append(word)
-	return sentence_list    
+	my_list = []
+	s = ''
+	for i in list1:
+		if i != ' ':
+			s = s + i
+		else:
+			my_list = my_list + [s]
+			s = ''
+	my_list =  my_list + [s]
+	return my_list
 sentance = "NavGurukul is an alternative"	
 print(break_into_words(sentance))	
