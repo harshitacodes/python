@@ -31,7 +31,7 @@ The repository is organized into the following directories, each representing a 
   - Solutions
 - **While loop**
   - Solutions
-- **Functionsn**
+- **Functionn**
   - Solutions
 - **Miscellaneous**
   - Solutions
